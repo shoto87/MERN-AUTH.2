@@ -1,9 +1,7 @@
-import { motion } from "framer-motion";
 import Input from "../components/Input";
-import { Loader, Lock, Mail, User } from "lucide-react";
+import { Lock, Mail, User } from "lucide-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import PasswordStrengthMeter from "../components/PasswordStrengthMeter";
 import { useAuthStore } from "../store/authStore";
 
 const SignUpPage = () => {
@@ -25,10 +23,7 @@ const SignUpPage = () => {
     }
   };
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+    <div
       className="max-w-md w-full bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-xl rounded-2xl shadow-xl 
 			overflow-hidden"
     >
@@ -60,24 +55,17 @@ const SignUpPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           {error && <p className="text-red-500 font-semibold mt-2">{error}</p>}
-          <PasswordStrengthMeter password={password} />
 
-          <motion.button
+          <button
             className="mt-5 w-full py-3 px-4 bg-emerald-600 text-white 
 						font-bold rounded-lg shadow-lg hover:from-green-600
 						hover:to-emerald-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2
 						 focus:ring-offset-gray-900 transition duration-200"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
             type="submit"
             disabled={isLoading}
           >
-            {isLoading ? (
-              <Loader className=" animate-spin mx-auto" size={24} />
-            ) : (
-              "Sign Up"
-            )}
-          </motion.button>
+            Sign Up
+          </button>
         </form>
       </div>
       <div className="px-8 py-4 bg-gray-900 bg-opacity-50 flex justify-center">
@@ -88,7 +76,7 @@ const SignUpPage = () => {
           </Link>
         </p>
       </div>
-    </motion.div>
+    </div>
   );
 };
 export default SignUpPage;
