@@ -1,0 +1,4 @@
+HOxg5uembEg5Azs6
+
+**string:
+mongodb+srv://iampratik70:HOxg5uembEg5Azs6@cluster0.9crru.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
