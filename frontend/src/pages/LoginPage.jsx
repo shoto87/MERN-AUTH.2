@@ -16,44 +16,47 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="max-w-md w-full bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-xl rounded-2xl shadow-xl overflow-hidden">
-      <div className="p-8">
-        <h2 className="text-3xl font-bold mb-6 text-center bg-gradient-to-r from-green-400 to-emerald-500 text-transparent bg-clip-text">
-          Welcome Back
-        </h2>
+    <div className="max-w-md w-full bg-white rounded-lg shadow-md p-6">
+      <h2 className="text-xl font-semibold mb-6 text-center text-gray-800">
+        Welcome Back
+      </h2>
 
-        <form onSubmit={handleLogin}>
-          <Input
-            icon={Mail}
-            type="email"
-            placeholder="Email Address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+      <form onSubmit={handleLogin}>
+        <Input
+          icon={Mail}
+          type="email"
+          placeholder="Email Address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-          <Input
-            icon={Lock}
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+        <Input
+          icon={Lock}
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-          {error && <p className="text-red-500 font-semibold mb-2">{error}</p>}
+        {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
 
-          <button
-            className="w-full py-3 px-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold rounded-lg shadow-lg hover:from-green-600 hover:to-emerald-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900 transition duration-200"
-            type="submit"
-            disabled={isLoading}
+        <button
+          className="w-full py-2 bg-gray-800 text-white font-medium rounded-md hover:bg-gray-700 
+          focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-offset-2 transition duration-200"
+          type="submit"
+          disabled={isLoading}
+        >
+          Log In
+        </button>
+      </form>
+
+      <div className="mt-4 text-center">
+        <p className="text-sm text-gray-600">
+          Don’t have an account?{" "}
+          <Link
+            to="/signup"
+            className="text-gray-800 font-medium hover:underline"
           >
-            Log In
-          </button>
-        </form>
-      </div>
-      <div className="px-8 py-4 bg-gray-900 bg-opacity-50 flex justify-center">
-        <p className="text-sm text-gray-400">
-          Dont have an account?{" "}
-          <Link to="/signup" className="text-green-400 hover:underline">
             Sign up
           </Link>
         </p>
@@ -61,4 +64,5 @@ const LoginPage = () => {
     </div>
   );
 };
+
 export default LoginPage;
