@@ -8,10 +8,9 @@ export const generateTokenAndSetCookie = (res, userId) => {
   res.cookie("token", token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
-    samesite: "strict",
-    maxAge: 1000 * 60 * 60 * 24 * 7,
+    sameSite: "strict",
+    maxAge: 7 * 24 * 60 * 60 * 1000,
   });
 
-  //   res.json({ message: "User signed up successfully" });
   return token;
 };
